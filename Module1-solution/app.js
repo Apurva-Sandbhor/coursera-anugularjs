@@ -8,23 +8,35 @@
 
 		function LunchCheckController($scope){
 			$scope.message = "";
-
+			
 			$scope.checkLunch = function(){
 				
 				if($scope.lunch == undefined || $scope.lunch == ""){
 					$scope.message = "Please enter data first!";
+					$scope.messageStyle = "color:red;";
 				}
 				else{
-					var lunch_arr = $scope.lunch.split(',');
-					if(lunch_arr.length <= 3){
+					if(getLen($scope.lunch) <= 3){
 						$scope.message = "Enjoy!";
+						$scope.messageStyle = "color:green;";
 					}
-					if(lunch_arr.length > 3){
+					if(getLen($scope.lunch) > 3){
 						$scope.message = "Too much!";
+						$scope.messageStyle = "color:green;";
 					}
 				}
 				
 			}
+		}
+
+		function getLen(str){
+			var temp = str.split(',');
+			var count = 0;
+			for(var i = 0; i < temp.length; i++){
+				if(temp[i] != "")
+					count++;
+			}
+			return count;
 		}
 
 })();

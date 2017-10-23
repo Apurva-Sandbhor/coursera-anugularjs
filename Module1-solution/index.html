@@ -20,9 +20,9 @@
              class="form-control" ng-model="lunch">
          </div>
          <div class="form-group">
-             <button class="btn btn-default" ng-click="checkLunch();">Check If Too Much</button><p>Note: ', ,' will be considered as an item towards the count.</p>
+             <button class="btn btn-default" ng-click="checkLunch();">Check If Too Much</button>
          </div>
-         <div class="form-group message">
+         <div class="form-group message" style="{{messageStyle}}">
            <!-- Your message can go here. -->
            {{message}}
          </div>
